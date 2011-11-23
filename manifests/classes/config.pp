@@ -1,19 +1,15 @@
 class solr::config {
-	file {
-		'solr initscript':
-			ensure => "present",
-			path => '/etc/init.d/solr',
-			owner => "root",
-			group => "root",
-			mode  => "0755",
-			content => template('solr/solr.init.erb');
+  file { "/opt/solr":
+    ensure => directory,
+    owner => "tomcat6",
+    group => "tomcat6",
+  }
 
-		'solr conf':
-			ensure => present,
-			path => '/usr/share/solr/solr.xml',
-			owner => root,
-			group => root,
-			mode => '0755',
-			content => template('solr/solr.xml.erb');
-	}
+  augeas { "solr config":
+    changes => [
+      "set /files/etc/default/tomcat6/JAVA_OPTS '\"-Djava.awt.headless=true -Dsolr.solr.home=/backpacktv/config/solr -Dsolr.data.dir=/opt/solr -Xmx128m -XX:+UseConcMarkSweepGC\"'",
+    ],
+    require => File["/opt/solr"],
+    notify => Service["tomcat6"],
+  }
 }
