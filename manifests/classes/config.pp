@@ -12,4 +12,10 @@ class solr::config {
     require => File["/opt/solr"],
     notify => Service["tomcat6"],
   }
+
+  file { "/etc/tomcat6/server.xml":
+    ensure => present,
+    source => "puppet:///modules/solr/etc/tomcat6/server.xml",
+    notify => Service["tomcat6"],
+  }
 }
