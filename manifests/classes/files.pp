@@ -15,7 +15,7 @@ class solr::files {
   exec { "deploy_solr":
     cwd => "/tmp",
     command => "/bin/mv /tmp/apache-solr-3.4.0/dist/apache-solr-3.4.0.war /var/lib/tomcat6/webapps/solr.war",
-    creates => "/var/lib/tomcat6/webapps/solr",
+    creates => "/var/lib/tomcat6/webapps/solr.war",
     require => Exec["unpack_solr"],
   }
 

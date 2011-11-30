@@ -1,15 +1,33 @@
 class solr::config {
-  file { "/opt/solr":
+  $tomcat_user = $operatingsystem ? {
+    /RedHat|CentOS/ => "tomcat",
+    /Debian|Ubuntu/ => "tomcat6",
+  }
+
+  $tomcat_conf_file = $operatingsystem ? {
+    /RedHat|CentOS/ => "/etc/sysconfig/tomcat6",
+    /Debian|Ubuntu/ => "/etc/default/tomcat6",
+  }
+
+  file { "solr home dir":
+    path => $solr::home_dir,
     ensure => directory,
-    owner => "tomcat6",
-    group => "tomcat6",
+    recurse => true,
+  }
+
+  file { "solr data dir":
+    path => $solr::data_dir,
+    ensure => directory,
+    recurse => true,
+    owner => $tomcat_user,
+    group => $tomcat_group,
   }
 
   augeas { "solr config":
     changes => [
-      "set /files/etc/default/tomcat6/JAVA_OPTS '\"-Djava.awt.headless=true -Dsolr.solr.home=/backpacktv/config/solr -Dsolr.data.dir=/opt/solr -Xmx128m -XX:+UseConcMarkSweepGC\"'",
+      "set /files${tomcat_conf_file}/JAVA_OPTS '\"-Djava.awt.headless=true -Dsolr.solr.home=${solr::data_dir} -Dsolr.data.dir=${solr::data_dir} -Xmx128m -XX:+UseConcMarkSweepGC\"'",
     ],
-    require => File["/opt/solr"],
+    require => [File["solr data dir"], File["solr home dir"]],
     notify => Service["tomcat6"],
   }
 
