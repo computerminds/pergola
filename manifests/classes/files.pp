@@ -3,6 +3,7 @@ class solr::files {
     cwd => "/tmp",
     command => "/usr/bin/wget -c http://apache.mirrors.pair.com/lucene/solr/3.4.0/apache-solr-3.4.0.tgz",
     creates => "/tmp/apache-solr-3.4.0.tgz",
+    timeout => 0,
   }
 
   exec { "unpack_solr":
