@@ -20,7 +20,7 @@ define pergola_varnish($storage="malloc",
       #params       => ["thread_pool_min=1",
       #                 "thread_pool_max=1000",
       #                 "thread_pool_timeout=120"],
-      vcl_file   => "/opt/pergola/puppet/modules/pergola_varnish/files/varnish.vcl"
+      vcl_file   => "puppet:///modules/pergola_varnish/drupal.vcl"
     }
   }
 
