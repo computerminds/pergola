@@ -38,7 +38,7 @@ def _initialize_git_repo():
 
 def _initialize_puppet():
     """Install puppet and set things up."""
-    local('apt-get install -t lucid-backports puppet')
+    local('apt-get install --yes -t lucid-backports puppet')
 
 def _initialize_packages():
     """Install apt-get and set things up."""
