@@ -8,6 +8,7 @@ def initialize():
     '''Initialize the Pantheon system.'''
 
     _initialize_fabric()
+    _initialize_git_repo()
     _initialize_packages()
     _initialize_puppet()
     
@@ -27,6 +28,11 @@ def _initialize_fabric():
     """
     if not os.path.exists('/usr/bin/fab'):
         local('ln -s /usr/local/bin/fab /usr/bin/fab')
+
+def _initialize_git_repo():
+    """Update the git submodules"""
+    local('cd /opt/pergola && git submodule init')
+    local('cd /opt/pergola && git submodule update')
 
 def _initialize_puppet():
     """Install puppet and set things up."""
