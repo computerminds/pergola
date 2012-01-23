@@ -6,5 +6,5 @@ node default {
     autoupdate => true,
   }
   
-  class {pergola_updater}
+  include pergola_updater
 }
