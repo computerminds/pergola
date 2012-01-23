@@ -4,8 +4,6 @@ import tempfile
 
 from fabric.api import *
 
-import update
-
 def initialize():
     '''Initialize the Pantheon system.'''
 
