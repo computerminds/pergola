@@ -8,6 +8,8 @@ class pergola_varnish($storage="malloc",
     fail("ensure parameter must be running or stopped")
   }
   
+  include varnish
+  
   if ($ensure == "running") {
     varnish::instance { $instance
       #backend      => "localhost:8080",
