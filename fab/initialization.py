@@ -41,3 +41,6 @@ def _initialize_packages():
     local("echo 'Pin: release a=lucid-backports' >> /etc/apt/preferences.d/lucid-backports-pin-100")
     local("echo 'Pin-Priority: 100' >> /etc/apt/preferences.d/lucid-backports-pin-100")
     
+    
+    local('apt-get update')
+    
