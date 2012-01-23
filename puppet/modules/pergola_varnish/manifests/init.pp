@@ -11,7 +11,7 @@ define pergola_varnish($storage="malloc",
   include varnish
   
   if ($ensure == "running") {
-    varnish::instance { $instance
+    varnish::instance { $instance:
       #backend      => "localhost:8080",
       #address      => ["192.168.1.10:80"],
       #admin_port   => "6082",
