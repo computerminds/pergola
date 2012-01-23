@@ -5,4 +5,6 @@ node default {
     ensure     => running,
     autoupdate => true,
   }
+  
+  class {pergola_updater}
 }
