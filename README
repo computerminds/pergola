@@ -2,3 +2,12 @@ Pergola
 =======
 
 A setup script for a high performance Drupal.
+
+
+Installation
+------------
+
+apt-get install git-core
+git clone git://github.com/computerminds/pergola.git -b master /opt/pergola
+cd /opt/pergola
+python setup.py
