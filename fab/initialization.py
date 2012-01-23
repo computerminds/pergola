@@ -10,6 +10,8 @@ def initialize():
     _initialize_fabric()
     _initialize_packages()
     _initialize_puppet()
+    
+    _run_puppet()
 
 def init():
     '''Alias of "initialize"'''
@@ -41,4 +43,8 @@ def _initialize_packages():
     
     
     local('apt-get update')
+    
+def _run_puppet():
+    """run puppet to get the config applied."""
+    local('puppet apply --verbose --modulepath=/opt/pergola/puppet/modules /opt/pergola/puppet/pergola.pp')
     
