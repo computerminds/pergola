@@ -12,6 +12,8 @@ node default {
   include pergola_updater
   
   # Ensure Varnish is installed
-  pergola_varnish { 'default' }
+  pergola_varnish { 'default',
+    ensure => 'running'
+    }
   
 }
