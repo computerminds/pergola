@@ -1,4 +1,4 @@
-class pergola_varnish($storage="malloc",
+define pergola_varnish($storage="malloc",
                       $ensure="running",
                       $vcl="UNSET") {
   
