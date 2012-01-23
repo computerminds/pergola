@@ -5,7 +5,7 @@ import tempfile
 from fabric.api import *
 
 def initialize():
-    '''Initialize the Pantheon system.'''
+    '''Initialize the Pergola system.'''
 
     _initialize_fabric()
     _initialize_git_repo()
