@@ -1,0 +1,4 @@
+---
+# Set this to either 'running' or 'stopped' depending on whether you want
+# MySQL to be running or stopped.
+pergola_mysql_status: running

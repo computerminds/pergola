@@ -1,0 +1,8 @@
+# Initial config file for pergola.
+---
+# Settings for varnish
+pergola_varnish_vcl: 
+
+# Set this to either 'running' or 'stopped' depending on whether you want
+# Varnish to be running or stopped.
+pergola_varnish_status: running

@@ -29,5 +29,12 @@ define pergola_varnish($storage="file,/var/varnish/storage1.bin,2G",
   	#}
   }
 
+  
+  pergola_server::config {'pergola_varnish':
+   	type => 'yaml',
+   	source => 'puppet:///modules/pergola_varnish/initial_config.yaml',
+  }
+  
+  notice("Fact: Varnish enabled: $::pergola_varnish_status")
 
 }

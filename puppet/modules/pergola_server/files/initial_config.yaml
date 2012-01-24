@@ -1,8 +1,0 @@
-# Initial config file for pergola.
----
-
-# Settings for varnish
-pergola_varnish: {
-  enabled: true,
-  vcl: 
-}
