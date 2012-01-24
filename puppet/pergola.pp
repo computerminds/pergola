@@ -2,18 +2,8 @@
 # Try not to edit this file!
 node default {
   
-  # Ensure ntp is installed.
-  class { ntp:
-    ensure     => running,
-    autoupdate => true,
+  class { pergola_server:
+  	
   }
-  
-  # Ensure the auto updater is around
-  include pergola_updater
-  
-  # Ensure Varnish is installed
-  pergola_varnish { 'drupal':
-    ensure => 'running'
-   }
   
 }

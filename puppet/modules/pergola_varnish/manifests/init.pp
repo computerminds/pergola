@@ -17,12 +17,17 @@ define pergola_varnish($storage="file,/var/varnish/storage1.bin,2G",
   
   include varnish
   
-  if ($ensure == "running") {
-    varnish::instance { $instance:
-      #backend      => "localhost:8080",
-      storage    => $storage,
-      vcl_file   => $vcl_file,
-    }
+  varnish::instance { $instance:
+    #backend      => "localhost:8080",
+    storage    => $storage,
+    vcl_file   => $vcl_file,
   }
+  
+  if ($ensure == "stopped") {
+  	#Service["varnish-${instance}"] {
+  	#  ensure +> "stopped",
+  	#}
+  }
+
 
 }
