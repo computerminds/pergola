@@ -2,3 +2,7 @@
 # Set this to either 'running' or 'stopped' depending on whether you want
 # MySQL to be running or stopped.
 pergola_mysql_status: running
+pergola_mysql_innodb_buffer_pool_size: #defaults to 1/16 of available memory
+pergola_mysql_innodb_log_file_size: 
+pergola_mysql_key_buffer_size:
+pergola_mysql_mysql_max_connections:

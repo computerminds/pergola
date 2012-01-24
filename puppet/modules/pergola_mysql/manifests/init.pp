@@ -1,6 +1,8 @@
 # A simple wrapper class around MySQL
 class pergola_mysql {
 	
+	include pergola_mysql::config
+	
 	if ($::pergola_mysql_status == 'running') {
 		$running = 'running'
 	}
@@ -11,11 +13,10 @@ class pergola_mysql {
 	class { 'mysql::server':
 		status => $running,
 	}
-	
-	# Config
-	pergola_server::config {'pergola_mysql':
-    type => 'yaml',
-    source => 'puppet:///modules/pergola_mysql/initial_config.yaml',
+  
+  file {'/etc/mysql/conf.d/pergola.cnf':
+    content => template('pergola_mysql/pergola.cnf.erb'),
+    notify => Class['mysql::server'], 
   }
 	
 }
