@@ -1,0 +1,5 @@
+---
+# Set this to either 'running' or 'stopped' depending on whether you want
+# Apache to be running or stopped.
+pergola_apache_status: running
+pergola_apache_max_clients: 

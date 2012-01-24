@@ -24,4 +24,9 @@ class pergola_server() {
   
   # MySQL
   class { pergola_mysql: }
+ 
+  # Apache
+  class { pergola_apache: }
+  
+  class { pergola_php: }
 }

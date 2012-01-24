@@ -1,0 +1,25 @@
+# This file is managed by Pergola - DO NOT EDIT MANUALLY!
+# See /etc/pergola/pergola_mysql.yaml for options instead.
+[mysqld]
+
+query_cache_limit       = 1M
+query_cache_size        = 16M
+
+innodb_buffer_pool_size = <%= scope.lookupvar('pergola_mysql::config::innodb_buffer_pool_size') %>
+innodb_log_file_size = <%= scope.lookupvar('pergola_mysql::config::innodb_log_file_size') %>
+key_buffer_size = <%= scope.lookupvar('pergola_mysql::config::key_buffer_size') %>
+mysql_max_connections = <%= scope.lookupvar('pergola_mysql::config::mysql_max_connections') %>
+table_cache = <%= scope.lookupvar('pergola_mysql::config::table_cache') %>
+
+default_storage_engine  = innodb
+default_character_set   = utf8
+collation_server        = utf8_general_ci
+character_set_server    = utf8
+#safe to set to 0 only if raid card has battery backup
+sync_binlog             = 1
+# may mean less than 100% acid-compliance if set to 0
+innodb_flush_log_at_trx_commit = 0
+innodb_flush_method            = O_DIRECT
+innodb_file_per_table          = 1
+
+max_allowed_packet      = 128M

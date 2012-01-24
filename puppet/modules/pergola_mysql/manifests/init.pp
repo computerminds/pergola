@@ -16,7 +16,8 @@ class pergola_mysql {
   
   file {'/etc/mysql/conf.d/pergola.cnf':
     content => template('pergola_mysql/pergola.cnf.erb'),
-    notify => Class['mysql::server'], 
+    notify => Class['mysql::server'],
+    require => Class['pergola_mysql::config'],
   }
 	
 }

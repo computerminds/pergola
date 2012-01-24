@@ -7,6 +7,6 @@
 [submodule "puppet/modules/varnish"]
 	path = puppet/modules/varnish
 	url = git://github.com/camptocamp/puppet-varnish.git
-[submodule "puppet/modules/apache"]
-	path = puppet/modules/apache
-	url = git://github.com/DavidS/puppet-apache.git
+[submodule "puppet/modules/concat"]
+	path = puppet/modules/concat
+	url = git://github.com/ripienaar/puppet-concat.git
