@@ -37,4 +37,11 @@ class pergola_mysql::config {
   else {
     $mysql_max_connections = $::pergola_mysql_mysql_max_connections
   }
+  
+  if ($::pergola_mysql_table_cache != false) {
+    $table_cache = 300  
+  }
+  else {
+    $table_cache = $::pergola_mysql_table_cache
+  }
 }

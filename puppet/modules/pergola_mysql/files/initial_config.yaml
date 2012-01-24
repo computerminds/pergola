@@ -6,3 +6,7 @@ pergola_mysql_innodb_buffer_pool_size: #defaults to 1/16 of available memory
 pergola_mysql_innodb_log_file_size: 
 pergola_mysql_key_buffer_size:
 pergola_mysql_mysql_max_connections:
+
+# The table cache is defaulted to 300, but should basically be greater than
+# the number of tables in your database, unless you have thousands.
+pergola_mysql_table_cache: 300
