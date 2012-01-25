@@ -8,8 +8,8 @@ class pergola_mysql::config {
   
   # Process the resulting facts into usable variables.
   if ($::pergola_mysql_innodb_buffer_pool_size != false) {
-    $innodb_buffer_pool_size_float = $::memorysize_raw / 16
-    $innodb_buffer_pool_size = sprintf('%i', $innodb_buffer_pool_size_float)
+    $innodb_buffer_pool_size_float = $::memorysize_raw / 16 / 1024
+    $innodb_buffer_pool_size = sprintf('%iM', $innodb_buffer_pool_size_float)
   }
   else {
     $innodb_buffer_pool_size = $::pergola_mysql_innodb_buffer_pool_size
@@ -23,8 +23,8 @@ class pergola_mysql::config {
   }
   
   if ($::pergola_mysql_key_buffer_size != false) {
-    $key_buffer_size_float = $::memorysize_raw / 64
-    $key_buffer_size = sprintf('%i', $key_buffer_size_float)
+    $key_buffer_size_float = $::memorysize_raw / 64 / 1024
+    $key_buffer_size = sprintf('%iM', $key_buffer_size_float)
   }
   else {
     $key_buffer_size = $::pergola_mysql_key_buffer_size
