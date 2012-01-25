@@ -15,19 +15,16 @@ class pergola_apache {
 	  apache_port => 8080,
 	}
 	
+	
+	
 	# Enable some modules for apache
   apache::module { "rewrite": ensure => present }
   apache::module { "php5": ensure => present }
-	/*
-	
-	class { 'mysql::server':
-		status => $running,
-	}
   
-  file {'/etc/mysql/conf.d/pergola.cnf':
-    content => template('pergola_mysql/pergola.cnf.erb'),
-    notify => Class['mysql::server'], 
+  file {'/etc/apache2/apache2.conf':
+    content => template('pergola_apache/apache2.conf.erb'),
+    notify => Class['apache::service'], 
   }
-	*/
+	
 	
 }
