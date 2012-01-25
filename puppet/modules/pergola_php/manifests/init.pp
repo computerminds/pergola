@@ -26,4 +26,11 @@ class pergola_php {
     notify => Package['php-apc'],
     require => Class['pergola_php::config'],
   }
+  
+  # Set up php.ini.
+  file {'/etc/php5/apache2/php.ini':
+    content => template('pergola_php/apache2/php.ini.erb'),
+    notify => Package['php-apc'],
+    require => Class['pergola_php::config'],
+  }
 }

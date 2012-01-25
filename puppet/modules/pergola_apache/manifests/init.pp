@@ -23,7 +23,8 @@ class pergola_apache {
   
   file {'/etc/apache2/apache2.conf':
     content => template('pergola_apache/apache2.conf.erb'),
-    notify => Class['apache::service'], 
+    notify => Class['apache::service'],
+    require => Class['pergola_apache::config'], 
   }
 	
 	

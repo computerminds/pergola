@@ -1,2 +1,5 @@
+; This file is managed by Pergola - DO NOT EDIT MANUALLY!
+; See /etc/pergola/pergola_php.yaml for options instead.
+
 extension=apc.so
 apc.shm_size = <%= scope.lookupvar('pergola_php::config::apc_memory') %>

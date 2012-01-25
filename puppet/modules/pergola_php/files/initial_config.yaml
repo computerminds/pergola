@@ -1,2 +1,17 @@
 ---
-pergola_php_apc_memory: 
+# This is the amount of memory available to APC, both for opcode caching and 
+# for user space caching. When APC reaches its limit it will flush the cache
+# entirely and everything will need to be rebuilt, so you want to avoid running
+# out of memory at all costs.
+# If you do not specify an amount of memory here, Pergola will set it to:
+# 64MB + 1/16 * TOTAL_MEMORY
+pergola_php_apc_memory:
+# This is the amount of memory available to PHP pages, if your Drupal
+# application requires more than 96M of memory, then you should set that here.
+# You should also consider lowering the pergola_apache_max_clients setting in
+# the Pergola apache config file.
+# Defaults to 96M 
+pergola_php_memory_limit: 
+# This it the maximum amount of time allowed to process an apache request
+# Defaults to 300
+max_execution_time: 
