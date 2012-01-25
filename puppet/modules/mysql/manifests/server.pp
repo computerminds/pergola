@@ -4,13 +4,14 @@ class mysql::server($status = 'running') {
     fail("ensure parameter must be running or stopped")
   }
   
-  package { "mysql-server":
+  preseed_package { "mysql-server-5.1":
     ensure => installed,
+    module_name => 'mysql',
   }
 
   service { mysql:
     ensure => $status,
     hasstatus => true,
-    require => Package["mysql-server"],
+    require => preseed_package["mysql-server-5.1"],
   }
 }

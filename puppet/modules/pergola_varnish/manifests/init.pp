@@ -23,6 +23,16 @@ define pergola_varnish($storage="file,/var/varnish/storage1.bin,2G",
     vcl_file   => $vcl_file,
   }
   
+  file { '/var/varnish/storage1.bin':
+    ensure => 'present',
+    before => Varnish::Instance[$instance],
+    require => File['/var/varnish'],
+  }
+  
+  file { '/var/varnish':
+    ensure => 'directory',
+  }
+  
   if ($ensure == "stopped") {
   	#Service["varnish-${instance}"] {
   	#  ensure +> "stopped",
@@ -34,7 +44,6 @@ define pergola_varnish($storage="file,/var/varnish/storage1.bin,2G",
    	type => 'yaml',
    	source => 'puppet:///modules/pergola_varnish/initial_config.yaml',
   }
-  
-  notice("Fact: Varnish enabled: $::pergola_varnish_status")
+
 
 }

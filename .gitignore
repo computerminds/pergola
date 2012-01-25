@@ -1,2 +1,4 @@
 *.pyc
 .project
+build
+pip-log.txt

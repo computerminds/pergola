@@ -8,7 +8,7 @@ query_cache_size        = 16M
 innodb_buffer_pool_size = <%= scope.lookupvar('pergola_mysql::config::innodb_buffer_pool_size') %>
 innodb_log_file_size = <%= scope.lookupvar('pergola_mysql::config::innodb_log_file_size') %>
 key_buffer_size = <%= scope.lookupvar('pergola_mysql::config::key_buffer_size') %>
-mysql_max_connections = <%= scope.lookupvar('pergola_mysql::config::mysql_max_connections') %>
+max_connections = <%= scope.lookupvar('pergola_mysql::config::mysql_max_connections') %>
 table_cache = <%= scope.lookupvar('pergola_mysql::config::table_cache') %>
 
 default_storage_engine  = innodb

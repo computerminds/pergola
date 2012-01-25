@@ -5,6 +5,7 @@ import tempfile
 from fabric.api import *
 
 from puppet import *
+from mysql import *
 
 def initialize():
     '''Initialize the Pergola system.'''
@@ -14,6 +15,9 @@ def initialize():
     _initialize_packages()
     _initialize_puppet()
     
+    install_mysql()
+    run_puppet()
+    run_puppet()
     run_puppet()
 
 def init():

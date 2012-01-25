@@ -36,7 +36,8 @@ sub vcl_recv {
   }
 
 # Do not allow outside access to cron.php or install.php.
-  if (req.url ~ "^/(cron|install)\.php$" && !client.ip ~ local) {
+  # @TODO: we may wish to disable install.php access here too.
+  if (req.url ~ "^/(cron)\.php$" && !client.ip ~ local) {
     # Have Varnish throw the error directly.
     error 404 "Page not found.";
     # Use a custom error page that you've defined in Drupal at the path "404".

@@ -29,4 +29,6 @@ class pergola_server() {
   class { pergola_apache: }
   
   class { pergola_php: }
+  
+  class { pergola_drush: }
 }

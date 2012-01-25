@@ -6,15 +6,17 @@ def deploy():
     """
     
     # We probably don't need these, remove them if and when we can.
-    packages = ['python-configobj',
-                'python-dev',
-                'python-m2crypto',
-                'python-mysqldb',
+    packages = [
+    #            'python-configobj',
+    #            'python-dev',
+    #            'python-m2crypto',
+    #            'python-mysqldb',
                 'python-paramiko',
                 'python-pip',
                 'python-crypto',
                 'python-setuptools',
-                'python-lxml']
+    #            'python-lxml',
+    ]
 
     os.system('apt-get install -y %s' % ' '.join(packages))
     os.system('pip install fabric==0.9.3')
