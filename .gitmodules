@@ -10,3 +10,6 @@
 [submodule "puppet/modules/concat"]
 	path = puppet/modules/concat
 	url = https://github.com/ripienaar/puppet-concat.git
+[submodule "puppet/modules/pear"]
+	path = puppet/modules/pear
+	url = https://git.sarava.org/puppet-pear.git

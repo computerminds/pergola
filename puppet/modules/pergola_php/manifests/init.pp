@@ -7,7 +7,6 @@ class pergola_php {
              'php5-suhosin',
              'php5-cgi',
              'php-apc',
-             'php-pear',
              'php5-cli',
              'php5-curl',
              'php5-mysql',
@@ -32,5 +31,10 @@ class pergola_php {
     content => template('pergola_php/apache2/php.ini.erb'),
     notify => Package['php-apc'],
     require => Class['pergola_php::config'],
+  }
+  
+  # Pull in the pear class, which will install uploadprogress for us.
+  class {'pear':
+    require => Package['php5'],
   }
 }
