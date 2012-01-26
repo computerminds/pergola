@@ -22,14 +22,14 @@ class pergola_php {
   # Set up APC
   file {'/etc/php5/conf.d/apc.ini':
     content => template('pergola_php/apc.ini.erb'),
-    notify => Package['php-apc'],
+    notify => [ Package['php-apc'], Class['pergola_apache'], ],
     require => Class['pergola_php::config'],
   }
   
   # Set up php.ini.
   file {'/etc/php5/apache2/php.ini':
     content => template('pergola_php/apache2/php.ini.erb'),
-    notify => Package['php-apc'],
+    notify => Class['pergola_apache'],
     require => Class['pergola_php::config'],
   }
   
