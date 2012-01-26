@@ -3,9 +3,17 @@ Pergola
 
 A setup script for a high performance Drupal.
 
+Requirements
+------------
+
+Currently Pergola ONLY supports Debian based distributions, notably anything 
+other than Ubuntu 10.04 may fail to work.
+
 
 Installation
 ------------
+
+(as root)
 
 apt-get update
 apt-get install git-core
