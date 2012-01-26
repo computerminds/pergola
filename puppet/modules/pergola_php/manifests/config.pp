@@ -27,4 +27,18 @@ class pergola_php::config {
   else {
     $max_execution_time = $::pergola_php_max_execution_time
   }
+  
+  if ($::pergola_php_upload_max_filesize != false) {
+    $upload_max_filesize = '16M'
+  }
+  else {
+    $upload_max_filesize = $::pergola_php_upload_max_filesize
+  }
+  
+  if ($::pergola_php_post_max_size != false) {
+    $post_max_size = '18M'
+  }
+  else {
+    $post_max_size = $::pergola_php_post_max_size
+  }
 }

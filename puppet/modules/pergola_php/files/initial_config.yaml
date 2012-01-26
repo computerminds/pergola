@@ -14,4 +14,10 @@ pergola_php_apc_memory:
 pergola_php_memory_limit: 
 # This it the maximum amount of time allowed to process an apache request
 # Defaults to 300
-max_execution_time: 
+pergola_php_max_execution_time: 
+# This is the maximum filesize that is allowed to be uploaded
+# Defaults to 16M
+pergola_php_upload_max_filesize:
+# This is the maximum amount of data that can be POSTed.
+# Defaults to 18M
+pergola_php_post_max_size:
