@@ -33,4 +33,6 @@ class pergola_server() {
   class { pergola_drush: }
   
   class { pergola_solr: }
+  
+  class { pergola_security: }
 }
