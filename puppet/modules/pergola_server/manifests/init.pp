@@ -31,4 +31,6 @@ class pergola_server() {
   class { pergola_php: }
   
   class { pergola_drush: }
+  
+  class { pergola_solr: }
 }

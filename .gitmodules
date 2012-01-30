@@ -13,3 +13,6 @@
 [submodule "puppet/modules/pear"]
 	path = puppet/modules/pear
 	url = https://git.sarava.org/puppet-pear.git
+[submodule "puppet/modules/solr"]
+	path = puppet/modules/solr
+	url = https://github.com/computerminds/puppet-solr.git
