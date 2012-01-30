@@ -6,4 +6,4 @@ from fabric.api import *
 
 def run_puppet():
     """run puppet to get the config applied."""
-    local('puppet apply --verbose --modulepath=/opt/pergola/puppet/modules /opt/pergola/puppet/pergola.pp', capture=False)
+    local('puppet apply --color=false --verbose --modulepath=/opt/pergola/puppet/modules /opt/pergola/puppet/pergola.pp', capture=False)
