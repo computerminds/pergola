@@ -11,6 +11,7 @@ class solr::packages {
          '*' => 'openjdk-6-jre',
       },
       'Debian' => 'openjdk-6-jre-headless',
+      'Ubuntu' => 'openjdk-6-jre-headless',
     },
   }
 }

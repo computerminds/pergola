@@ -20,12 +20,12 @@ class solr::config {
     ensure => directory,
     recurse => true,
     owner => $tomcat_user,
-    group => $tomcat_group,
+    group => $tomcat_user,
   }
 
   augeas { "solr config":
     changes => [
-      "set /files${tomcat_conf_file}/JAVA_OPTS '\"-Djava.awt.headless=true -Dsolr.solr.home=${solr::data_dir} -Dsolr.data.dir=${solr::data_dir} -Xmx128m -XX:+UseConcMarkSweepGC\"'",
+      "set /files${tomcat_conf_file}/JAVA_OPTS '\"-Djava.awt.headless=true -Dsolr.solr.home=${solr::home_dir} -Dsolr.data.dir=${solr::data_dir} -Xmx128m -XX:+UseConcMarkSweepGC\"'",
     ],
     require => [File["solr data dir"], File["solr home dir"]],
     notify => Service["tomcat6"],
