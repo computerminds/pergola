@@ -4,6 +4,9 @@ import tempfile
 
 from fabric.api import *
 
-def run_puppet():
+def puppet():
+    run_puppet('true')
+
+def run_puppet(color='false'):
     """run puppet to get the config applied."""
-    local('puppet apply --color=false --verbose --modulepath=/opt/pergola/puppet/modules /opt/pergola/puppet/pergola.pp', capture=False)
+    local('puppet apply --color=%s --verbose --modulepath=/opt/pergola/puppet/modules /opt/pergola/puppet/pergola.pp' % color, capture=False)
