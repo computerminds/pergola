@@ -12,6 +12,7 @@ def update():
     _update_git_repo()
     
     run_puppet()
+    run_puppet()
 
 def _update_git_repo():
     """Update the git submodules"""
