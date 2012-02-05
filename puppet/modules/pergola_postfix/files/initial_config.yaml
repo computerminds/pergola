@@ -1,0 +1,4 @@
+---
+# Set this to specify a particular hostname to use, otherwise the systems
+# hostname will be used.
+pergola_postfix_hostname:
