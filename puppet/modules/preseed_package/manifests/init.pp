@@ -1,4 +1,6 @@
 define preseed_package ( $ensure, $source = false, $module_name = false ) {
+  include preseed_package::requirements
+  
   $real_module_name = $module_name ? {
     false => $name,
     default => $module_name,
@@ -11,16 +13,14 @@ define preseed_package ( $ensure, $source = false, $module_name = false ) {
     source => $real_source,
     mode => 600,
     backup => false,
-    require => File["/var/local/preseed"],
+    require => Class['preseed_package::requirements'],
   }
+  
   package { "$name":
     ensure => $ensure,
     responsefile => "/var/local/preseed/$name.preseed",
     require => File["/var/local/preseed/$name.preseed"],
-  }
-  
-  file {'/var/local/preseed':
-    ensure => 'directory',
-  }
+  }  
+
 }
 

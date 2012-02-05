@@ -35,4 +35,6 @@ class pergola_server() {
   class { pergola_solr: }
   
   class { pergola_security: }
+  
+  class { pergola_postfix: }
 }
