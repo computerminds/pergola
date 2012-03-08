@@ -5,8 +5,7 @@ define pergola_server::config($type = 'yaml',
 	
 	file {"/etc/pergola/$name.$type":
 		ensure => 'present',
-		# @TODO: Set this back to false at some point.
-		replace => true,
+		replace => false,
 		require => File["/etc/pergola"],
 		source => $source,
 	}
