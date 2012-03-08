@@ -6,7 +6,7 @@ class pergola_apache::config {
     source => 'puppet:///modules/pergola_apache/initial_config.yaml',
   }
   
-  if ($::pergola_apache_max_clients != false) {
+  if ($::pergola_apache_max_clients == undef) {
     $max_clients_float = $::memorysize_raw / 1024 / 50
     $max_clients = sprintf('%i', $max_clients_float)
   }

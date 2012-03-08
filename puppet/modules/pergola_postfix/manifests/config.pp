@@ -6,7 +6,7 @@ class pergola_postfix::config {
     source => 'puppet:///modules/pergola_postfix/initial_config.yaml',
   }
   
-  if ($::pergola_postfix_hostname == false) {
+  if ($::pergola_postfix_hostname == undef) {
     $hostname = $::hostname
   }
   else {
