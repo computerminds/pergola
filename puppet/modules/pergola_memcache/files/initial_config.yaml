@@ -1,0 +1,6 @@
+---
+# Add: true to the end of this next line to enable the memcache server.
+pergola_memcache_enabled:
+# Set the amount of memory to allocate to Memcache in megabytes,
+# this defaults to 1/16 of the systems memory.
+pergola_memcache_memory:

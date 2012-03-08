@@ -39,4 +39,6 @@ class pergola_server() {
   class { pergola_postfix: }
 
   class { pergola_motd: }
+  
+  class { pergola_memcache: }
 }
