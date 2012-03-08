@@ -23,6 +23,7 @@ logfile /var/log/memcached.log
 # Start with a cap of <%= scope.lookupvar('pergola_memcache::config::memcache_memory') %> megs of memory. It's reasonable, and the daemon default
 # Note that the daemon will grow to this size, but does not start out holding this much
 # memory
+# this setting is controlled from /etc/pergola/pergola_memcache.yaml
 -m <%= scope.lookupvar('pergola_memcache::config::memcache_memory') %>
 
 # Default connection port is 11211
