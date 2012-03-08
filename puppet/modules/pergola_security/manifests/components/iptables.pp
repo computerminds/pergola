@@ -31,6 +31,7 @@ class pergola_security::components::iptables {
       mode    => 640,
       source  => "puppet:///modules/pergola_security/iptables.rules",
       require => Package["iptables-persistent"],
+      replace => false,
 
       # When this file is updated, make sure the rules get reloaded.
       notify  => Service["iptables-persistent"],
