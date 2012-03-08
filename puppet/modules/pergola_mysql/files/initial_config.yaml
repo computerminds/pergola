@@ -2,11 +2,33 @@
 # Set this to either 'running' or 'stopped' depending on whether you want
 # MySQL to be running or stopped.
 pergola_mysql_status: running
-pergola_mysql_innodb_buffer_pool_size: #defaults to 1/16 of available memory
-pergola_mysql_innodb_log_file_size: 
+
+# Set the innodb buffer pool size, if this is too small this can have a 
+# dramatic effect server performance.
+# defaults to 1/16 of available memory.
+pergola_mysql_innodb_buffer_pool_size: 
+
+# Set the innodb log file size, if you change this the MySQL server will be 
+# unable to restart unless you remove the /var/lib/mysql/ib_logfile* files. 
+# defaults to 1073741824
+pergola_mysql_innodb_log_file_size:
+
+# Defaults to 1/64 of available memory. 
 pergola_mysql_key_buffer_size:
+
+# Defaults to 1/50MB of available memory, i.e. its just a number.
 pergola_mysql_mysql_max_connections:
 
-# The table cache is defaulted to 300, but should basically be greater than
-# the number of tables in your database, unless you have thousands.
-pergola_mysql_table_cache: 300
+# This is the maximum size of gueries that can be stored in the query cache.
+# Defaults to 1M
+pergola_mysql_query_cache_limit:
+
+# This is the size of the query cache.
+# Defaults to 16M
+pergola_mysql_query_cache_size:
+
+# The table cache is the amount of tables that MySQL is allowed to have open 
+# for reading/writing at any one time. You should set this to be greater than 
+# the number of tables in all your databases, unless you have thousands. 
+# Defaults to 300
+pergola_mysql_table_cache:

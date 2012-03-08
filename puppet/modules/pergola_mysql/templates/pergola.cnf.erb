@@ -2,8 +2,8 @@
 # See /etc/pergola/pergola_mysql.yaml for options instead.
 [mysqld]
 
-query_cache_limit       = 1M
-query_cache_size        = 16M
+query_cache_limit       = <%= scope.lookupvar('pergola_mysql::config::mysql_query_cache_limit') %>
+query_cache_size        = <%= scope.lookupvar('pergola_mysql::config::mysql_query_cache_size') %>
 
 innodb_buffer_pool_size = <%= scope.lookupvar('pergola_mysql::config::innodb_buffer_pool_size') %>
 innodb_log_file_size = <%= scope.lookupvar('pergola_mysql::config::innodb_log_file_size') %>

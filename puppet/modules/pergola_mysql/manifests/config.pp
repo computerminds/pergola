@@ -44,4 +44,18 @@ class pergola_mysql::config {
   else {
     $table_cache = $::pergola_mysql_table_cache
   }
+  
+  if ($::pergola_mysql_query_cache_limit == undef) {
+    $mysql_query_cache_limit = '1M'
+  }
+  else {
+    $mysql_query_cache_limit = $::pergola_mysql_query_cache_limit
+  }
+
+  if ($::pergola_mysql_query_cache_size == undef) {
+    $mysql_query_cache_size = '16M'
+  }
+  else {
+    $mysql_query_cache_size = $::pergola_mysql_query_cache_size
+  }
 }
