@@ -13,4 +13,4 @@ echo "Installing pergola"
 /usr/bin/env git clone git://github.com/computerminds/pergola.git -b dev /opt/pergola
 
 echo "Setting up Pergola"
-/usr/bin/env cd /opt/pergola && python setup.py
+cd /opt/pergola && /usr/bin/env python setup.py
