@@ -4,6 +4,12 @@ then
   exit
 fi
 
+if [ `whoami` != root ]
+then
+  echo "You must run the install script as root"
+  exit
+fi
+
 echo "Installing git"
 
 /usr/bin/env apt-get update
