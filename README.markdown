@@ -30,6 +30,6 @@ You can install this via the command line with either 'curl' or 'wget'.
 
     apt-get update
     apt-get install git-core
-    git clone git://github.com/computerminds/pergola.git -b master /opt/pergola
+    git clone git://github.com/computerminds/pergola.git -b dev /opt/pergola
     cd /opt/pergola
     python setup.py
