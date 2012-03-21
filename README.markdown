@@ -9,8 +9,10 @@ Requirements
 Currently Pergola ONLY supports Debian based distributions, notably anything 
 other than Ubuntu 10.04 may fail to work.
 
-Automatic installation
-----------------------
+Installation
+------------
+
+### Automatic installation
 
 You can install this via the command line with either 'curl' or 'wget'.
 
@@ -22,8 +24,7 @@ You can install this via the command line with either 'curl' or 'wget'.
 
     wget --no-check-certificate https://github.com/computerminds/pergola/raw/dev/tools/install.sh -qO - | sh
 
-Manual installation
--------------------
+### Manual installation
 
 (as root)
 
