@@ -18,11 +18,11 @@ You can install this via the command line with either 'curl' or 'wget'.
 
 #### via curl
 
-    curl -L https://github.com/computerminds/pergola/raw/dev/tools/install.sh | sh
+    curl -L https://github.com/computerminds/pergola/raw/master/tools/install.sh | sh
 
 #### via wget
 
-    wget --no-check-certificate https://github.com/computerminds/pergola/raw/dev/tools/install.sh -qO - | sh
+    wget --no-check-certificate https://github.com/computerminds/pergola/raw/master/tools/install.sh -qO - | sh
 
 ### Manual installation
 
