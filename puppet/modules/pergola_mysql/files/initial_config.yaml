@@ -1,7 +1,7 @@
 ---
-# Set this to either 'running' or 'stopped' depending on whether you want
+# Set this to either "running" or "stopped" depending on whether you want
 # MySQL to be running or stopped.
-pergola_mysql_status: running
+pergola_mysql_status: "running"
 
 # Set the innodb buffer pool size, if this is too small this can have a 
 # dramatic effect server performance.
