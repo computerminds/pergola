@@ -1,0 +1,5 @@
+---
+# Change to false to disable the auto-updating.
+pergola_updater_enabled: true
+# Set the hour in which Pergola should auto-update.
+pergola_updater_hour: 2
