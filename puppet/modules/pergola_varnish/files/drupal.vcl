@@ -87,10 +87,15 @@ sub vcl_recv {
       # the page.
       unset req.http.Cookie;
     }
-    else {
-      # If there is any cookies left (a session or NO_CACHE cookie), do not
-      # cache the page. Pass it on to Apache directly.
+    # If there is a session cookie or the NO_CACHE cookie, do not cache the page.
+    elsif (req.http.Cookie ~ "(SESS[a-z0-9]+|NO_CACHE)=") {
       return (pass);
+    }
+    else {
+      # We only reach here if we have the has_js cookie, and we don't have a session.
+      # Sadly, Varnish can't seem to handle segmenting on this yet, so we've gone
+      # for removing the has_js cookie if you don't have a session.
+     unset req.http.Cookie;
     }
   }
 }
