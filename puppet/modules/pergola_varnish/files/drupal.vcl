@@ -107,6 +107,12 @@ sub vcl_hash {
   # if (req.http.Cookie) {
   #   set req.hash += req.http.Cookie;
   # }
+  
+  # Ensure we have a separate bin for Safari as it has a different cache-conrol
+  # header.
+  if (req.http.user-agent ~ "Safari" && !req.http.user-agent ~ "Chrome") {
+    set req.hash += "safari-disable-cache-control";
+  }
 }
 
 # Code determining what to do when serving items from the Apache servers.
@@ -119,6 +125,12 @@ sub vcl_fetch {
 
   # Allow items to be stale if needed.
   set beresp.grace = 6h;
+  
+  # Force Safari to always check the server as it doesn't respect Vary: cookie.
+  # See https://bugs.webkit.org/show_bug.cgi?id=71509
+  if (req.http.user-agent ~ "Safari" && !req.http.user-agent ~ "Chrome") {
+    set beresp.http.cache-control = "max-age: 0";
+  }
 }
 
 
