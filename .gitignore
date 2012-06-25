@@ -3,3 +3,5 @@
 build
 pip-log.txt
 .settings/org.eclipse.core.resources.prefs
+.DS_Store
+
