@@ -111,7 +111,7 @@ sub vcl_hash {
   # Ensure we have a separate bin for Safari as it has a different cache-conrol
   # header.
   if (req.http.user-agent ~ "Safari" && !req.http.user-agent ~ "Chrome") {
-    set req.hash += "safari-disable-cache-control";
+    hash_data("safari-disable-cache-control");
   }
 }
 
