@@ -16,6 +16,6 @@ def update():
 
 def _update_git_repo():
     """Update the git submodules"""
-    local('cd /opt/pergola && git pull origin HEAD')
+    local('cd /opt/pergola && git pull')
     local('cd /opt/pergola && git submodule init')
     local('cd /opt/pergola && git submodule update')
