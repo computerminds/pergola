@@ -1,6 +1,6 @@
 class solr::services {
   service { "tomcat6":
-      ensure => "running",
+      ensure => $solr::ensure,
       enable => "true",
     }
 }
