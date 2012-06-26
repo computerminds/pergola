@@ -5,7 +5,7 @@ define pergola_varnish($storage="file,/var/varnish/storage1.bin,2G",
   $instance = $name
   
   if ($vcl == "UNSET") {
-  	$vcl_file = "puppet:///modules/pergola_varnish/drupal.vcl"
+  	$vcl_file = ["puppet:///modules/pergola_varnish/drupal.vcl.$lsbdistcodename", "puppet:///modules/pergola_varnish/drupal.vcl"]
   }
   else {
   	$vcl_file = $vcl

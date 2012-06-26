@@ -3,11 +3,11 @@ class pergola_mysql {
 	
 	include pergola_mysql::config
 	
-	if ($::pergola_mysql_status == 'running') {
-		$running = 'running'
+	if ($::pergola_mysql_status == 'stopped') {
+		$running = 'stopped'
 	}
 	else {
-		$running = 'stopped'
+		$running = 'running'
 	}
 	
 	class { 'mysql::server':
