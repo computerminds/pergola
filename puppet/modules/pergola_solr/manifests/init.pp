@@ -1,11 +1,21 @@
 # Pergola class to install Solr and Tomcat.
 class pergola_solr {
+	
+  include pergola_solr::config
+	
+  if ($::pergola_solr_status == 'stopped') {
+    $running = 'stopped'
+  }
+  else {
+    $running = 'running'
+  }
   
   class {'solr':
     backend => 'tomcat',
     home_dir => '/opt/solr/home',
     data_dir => '/opt/solr/data',
     require => File['/opt/solr'],
+    ensure => $running,
   }
   
   file {'/opt/solr':

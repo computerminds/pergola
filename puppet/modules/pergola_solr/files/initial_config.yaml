@@ -1,0 +1,4 @@
+---
+# Set this to either "running" or "stopped" depending on whether you want
+# Tomcat/Solr to be running or stopped.
+pergola_solr_status: "running"

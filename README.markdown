@@ -7,7 +7,7 @@ Requirements
 ------------
 
 Currently Pergola ONLY supports Debian based distributions, notably anything 
-other than Ubuntu 10.04 may fail to work.
+other than Ubuntu 10.04 or 12.04 may fail to work.
 
 Installation
 ------------
