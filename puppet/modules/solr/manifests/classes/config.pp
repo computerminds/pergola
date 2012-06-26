@@ -35,5 +35,7 @@ class solr::config {
     ensure => present,
     source => "puppet:///modules/solr/etc/tomcat6/server.xml",
     notify => Service["tomcat6"],
+    owner => $tomcat_user,
+    group => $tomcat_user,
   }
 }
