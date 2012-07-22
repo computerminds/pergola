@@ -1,7 +1,7 @@
 class solr::files {
   exec { "download_solr":
     cwd => "/tmp",
-    command => "/usr/bin/wget -c http://apache.mirrors.pair.com/lucene/solr/3.5.0/apache-solr-3.5.0.tgz",
+    command => "/usr/bin/wget -c http://archive.apache.org/dist/lucene/solr/3.5.0/apache-solr-3.5.0.tgz",
     creates => ["/tmp/apache-solr-3.5.0.tgz", "/var/lib/tomcat6/webapps/solr.war"],
     timeout => 0,
   }
