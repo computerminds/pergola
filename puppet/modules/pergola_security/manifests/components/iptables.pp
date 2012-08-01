@@ -1,8 +1,8 @@
 class pergola_security::components::iptables {
-  # Taken from: 
+  # Taken from:
   # http://projects.puppetlabs.com/projects/1/wiki/Module_Iptables_Patterns#Alternate+method
-  
-  
+
+
   package {
     "iptables-persistent": ensure => present;
   }
@@ -35,8 +35,21 @@ class pergola_security::components::iptables {
 
       # When this file is updated, make sure the rules get reloaded.
       notify  => Service["iptables-persistent"],
-    ;
   }
-  
-  
+
+  # Needed for Precise.
+  file {
+    "/etc/iptables/rules.v4":
+      owner   => "root",
+      group   => "root",
+      mode    => 640,
+      source  => "puppet:///modules/pergola_security/iptables.rules",
+      require => Package["iptables-persistent"],
+      replace => false,
+
+      # When this file is updated, make sure the rules get reloaded.
+      notify  => Service["iptables-persistent"],
+  }
+
+
 }
